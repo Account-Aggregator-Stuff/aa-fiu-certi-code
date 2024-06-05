@@ -1,0 +1,33 @@
+version: '3'
+services:
+  pyropostgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_DB: ${BACKEND_DB_NAME}
+      POSTGRES_USER: ${BACKEND_DB_USER}
+      POSTGRES_PASSWORD: ${BACKEND_DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      - my-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - my-network
+    volumes:
+      - .:/app/backend
+    depends_on:
+      - pyropostgres
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
