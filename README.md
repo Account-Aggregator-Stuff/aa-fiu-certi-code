@@ -7,6 +7,7 @@ If you need assistance with the certification process, or encounter any technica
 #### Contact
 
 Ritika Agarwal (agarwalritika101@gmail.com)
+
 Lohit Marodia (lohitmarodia@gmail.com)
 
 ### The Account Aggregator Ecosystem
